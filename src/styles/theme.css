@@ -1,0 +1,162 @@
+:root {
+  /* Primary Colors */
+  --color-primary-50: #FFF8E1;
+  --color-primary-100: #FFECB3;
+  --color-primary-200: #FFE082;
+  --color-primary-300: #FFD54F;
+  --color-primary-400: #FFCA28;
+  --color-primary-500: #FFC107; /* Main Yellow */
+  --color-primary-600: #FFB300;
+  --color-primary-700: #FFA000;
+  --color-primary-800: #FF8F00;
+  --color-primary-900: #FF6F00;
+  
+  /* Brown Colors */
+  --color-brown-50: #EFEBE9;
+  --color-brown-100: #D7CCC8;
+  --color-brown-200: #BCAAA4;
+  --color-brown-300: #A1887F;
+  --color-brown-400: #8D6E63;
+  --color-brown-500: #795548; /* Main Brown */
+  --color-brown-600: #6D4C41;
+  --color-brown-700: #5D4037;
+  --color-brown-800: #4E342E;
+  --color-brown-900: #3E2723;
+  
+  /* Black Colors */
+  --color-black-50: #FAFAFA;
+  --color-black-100: #F5F5F5;
+  --color-black-200: #EEEEEE;
+  --color-black-300: #E0E0E0;
+  --color-black-400: #BDBDBD;
+  --color-black-500: #9E9E9E;
+  --color-black-600: #757575;
+  --color-black-700: #616161;
+  --color-black-800: #424242;
+  --color-black-900: #212121; /* Main Black */
+  
+  /* Accent Colors */
+  --color-accent-red: #C62828;
+  --color-accent-green: #2E7D32;
+  --color-accent-blue: #1565C0;
+  --color-accent-orange: #EF6C00;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(to right, var(--color-brown-700), var(--color-brown-500));
+  --gradient-secondary: linear-gradient(to right, var(--color-primary-700), var(--color-primary-500));
+  --gradient-dark: linear-gradient(to right, var(--color-black-900), var(--color-black-700));
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+  
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-24: 6rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Font Families */
+  --font-primary: 'Ubuntu', 'Poppins', sans-serif;
+  --font-heading: 'Ubuntu', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+/* Page Transitions */
+.transition-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* African Patterns */
+.pattern-dots {
+  background-image: radial-gradient(var(--color-primary-500) 2px, transparent 2px);
+  background-size: 20px 20px;
+}
+
+.pattern-stripes {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-brown-500),
+    var(--color-brown-500) 10px,
+    var(--color-brown-600) 10px,
+    var(--color-brown-600) 20px
+  );
+}
+
+.pattern-zigzag {
+  background: 
+    linear-gradient(135deg, var(--color-primary-500) 25%, transparent 25%) -10px 0,
+    linear-gradient(225deg, var(--color-primary-500) 25%, transparent 25%) -10px 0,
+    linear-gradient(315deg, var(--color-primary-500) 25%, transparent 25%),
+    linear-gradient(45deg, var(--color-primary-500) 25%, transparent 25%);
+  background-size: 20px 20px;
+  background-color: var(--color-brown-700);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-black-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brown-500);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brown-600);
+}
