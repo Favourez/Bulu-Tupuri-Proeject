@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
             ))}
 
             {/* Language Dropdown */}
-            <div className="relative ml-2">
+            {/* <div className="relative ml-2">
               <button
                 onClick={toggleDropdown}
                 className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
@@ -144,11 +144,11 @@ const Navbar: React.FC = () => {
                   </Link>
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* CTA Button */}
-            <Link
-              to="/translate"
+            <a
+              href="#translate"
               className={`ml-4 btn-adinkra px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                 scrolled
                   ? 'bg-brown-600 hover:bg-brown-700 text-white'
@@ -156,7 +156,7 @@ const Navbar: React.FC = () => {
               }`}
             >
               Start Translating
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu button */}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ArrowLeftRight, Send, Volume2, Copy, Info } from 'lucide-react';
 import { useTranslation } from '../../contexts/TranslationContext';
 import LanguageSelector from './LanguageSelector';
@@ -42,15 +42,15 @@ const TranslationInterface: React.FC = () => {
   };
 
   // Auto-translate when input changes (with debounce)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (inputText.trim()) {
-        translateText();
-      }
-    }, 700);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (inputText.trim()) {
+  //       translateText();
+  //     }
+  //   }, 700);
 
-    return () => clearTimeout(timer);
-  }, [inputText, sourceLanguage, targetLanguage]);
+  //   return () => clearTimeout(timer);
+  // }, [inputText, sourceLanguage, targetLanguage, translateText]);
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden border border-amber-200 african-border">

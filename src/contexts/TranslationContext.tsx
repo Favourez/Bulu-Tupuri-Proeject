@@ -31,8 +31,8 @@ export const TranslationProvider: React.FC<{ children: React.ReactNode }> = ({ c
   const [proposedTranslation, setProposedTranslation] = useState('');
   const [isSubmittingProposal, setIsSubmittingProposal] = useState(false);
 
-  // Mock translation function - in a real app, this would call a translation API
-  const translateText = () => {
+  // Translation function using the translation service
+  const translateText = async () => {
     if (!inputText.trim()) {
       setTranslatedText('');
       return;
@@ -40,26 +40,26 @@ export const TranslationProvider: React.FC<{ children: React.ReactNode }> = ({ c
 
     setIsTranslating(true);
     
-    // Simulate API call
-    setTimeout(() => {
-      // Mock translations for demo purposes
-      let result = '';
+    try {
+      // Use the translation service to find the best match
+      const { findBestMatch } = await import('../services/translationService');
+      const translation = findBestMatch(inputText, sourceLanguage, targetLanguage);
+      const success = translation !== null;
+      const error = !success ? 'No translation found' : undefined;
       
-      if (sourceLanguage === 'english' && targetLanguage === 'bulu') {
-        result = `[Bulu translation of: "${inputText}"]`;
-      } else if (sourceLanguage === 'english' && targetLanguage === 'tupuri') {
-        result = `[Tupuri translation of: "${inputText}"]`;
-      } else if (sourceLanguage === 'bulu' && targetLanguage === 'english') {
-        result = `[English translation from Bulu: "${inputText}"]`;
-      } else if (sourceLanguage === 'tupuri' && targetLanguage === 'english') {
-        result = `[English translation from Tupuri: "${inputText}"]`;
+      if (success && translation) {
+        setTranslatedText(translation);
       } else {
-        result = `[Translation from ${sourceLanguage} to ${targetLanguage}: "${inputText}"]`;
+        // If no match found, show a message
+        setTranslatedText(`No translation found. ${error || ''}`);
+        console.warn('Translation not found:', error);
       }
-      
-      setTranslatedText(result);
+    } catch (error) {
+      console.error('Error during translation:', error);
+      setTranslatedText('An error occurred during translation.');
+    } finally {
       setIsTranslating(false);
-    }, 1000);
+    }
   };
 
   // Swap source and target languages
